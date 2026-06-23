@@ -98,38 +98,35 @@ REPORT_DAYS_BACK = 30  # Cambia este número
 | Métrica | Descripción |
 |---|---|
 | campaign_name | Nombre de la campaña |
-| format | Tipo de campaña (VIDEO, IMAGE, etc.) |
-| goal | Objetivo de la campaña |
-| key_result | KPI principal |
+| goal | Objetivo de la campaña (Brand Awareness, Video Views, etc.) |
 | start_date / end_date | Periodo de la campaña |
 | budget | Presupuesto total |
+| currency | Moneda de la cuenta |
 | impressions | Impresiones |
 | reach | Alcance |
 | clicks | Clicks |
 | landing_page_clicks | Clicks a landing page |
 | spend | Gasto total |
-| CTR | Click-through rate |
+| CTR | Click-through rate (clicks / impresiones) |
 | CPM | Coste por mil impresiones |
 | CPC | Coste por click |
 | video_views | Visualizaciones de vídeo |
-| video_view_rate | Tasa de visualización |
+| video_view_rate | Tasa de visualización (video views / impresiones) |
 | CPV | Coste por visualización |
 | video_25pct | Vídeos vistos al 25% |
 | video_50pct | Vídeos vistos al 50% |
 | video_75pct | Vídeos vistos al 75% |
 | video_completions | Vídeos completados al 100% |
-| completion_rate | Tasa de completion |
-| engagements | Total de interacciones |
-| engagement_rate | Tasa de engagement |
+| completion_rate | Tasa de completion (completions / video views) |
+| engagements | Total interacciones (likes + comments + shares + follows + clicks) |
+| engagement_rate | Tasa de engagement (engagements / impresiones) |
 | likes | Likes |
 | comments | Comentarios |
 | shares | Compartidos |
 | follows | Nuevos seguidores |
 
-### Nivel anuncio (tab: ads)
-Mismas métricas que campaña agregadas por creativo/ad.
 
-## Estructura del proyecto
+## Estructura 
 
 ```
 linkedin_etl/
@@ -143,27 +140,9 @@ linkedin_etl/
 ├── loaders/
 │   └── excel_export.py           # Exporta datos a fichero Excel
 ├── venv/                         # Entorno virtual (no tocar)
-├── .env                          # Credenciales (nunca compartir)
+├── .env                          # Credenciales 
 ├── config.py                     # Variables globales del proyecto
 ├── main.py                       # Orquestador principal
 ├── requirements.txt              # Dependencias del proyecto
 └── README.md                     # Este fichero
 ```
-
-## Adaptar a otra página de LinkedIn
-
-Para usar este proyecto con una cuenta de LinkedIn diferente:
-
-1. Crea una nueva app en LinkedIn Developer Portal vinculada a la nueva página
-2. Solicita acceso a Advertising API para la nueva app
-3. Actualiza `CLIENT_ID` y `CLIENT_SECRET` en el `.env`
-4. Actualiza `ACCOUNT_ID` con el ID de la nueva cuenta de Campaign Manager
-5. Regenera el `ACCESS_TOKEN` siguiendo los pasos de autenticación
-
-## Notas sobre disponibilidad de campos
-
-| Campo | Estado | Nota |
-|---|---|---|
-| `frequency` | ❌ No disponible | El campo `approximateMemberFrequency` no existe en API versión 202502 |
-| `reach` | ✅ Disponible | `approximateMemberReach` |
-| Métricas de vídeo | ✅ Disponibles | Requiere campañas de tipo VIDEO |
