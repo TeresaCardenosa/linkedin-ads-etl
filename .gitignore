@@ -1,0 +1,16 @@
+# Credenciales — nunca subir
+.env
+
+# Entorno virtual — se regenera
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Excel generado — datos del cliente
+*.xlsx
+
+# VS Code
+.vscode/
