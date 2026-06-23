@@ -1,8 +1,8 @@
-# LinkedIn Ads ETL — CLIENTE
+# LinkedIn Ads ETL
 
-Script Python para extraer métricas de campañas publicitarias de LinkedIn Ads y exportarlas a un documento Excel.
+Objetivo inicial: extraer métricas de campañas publicitarias de LinkedIn Ads y exportarlas a un documento Excel.
 
-## ¿Qué hace este proyecto?
+## ¿Qué hace?
 
 Conecta con la API de LinkedIn Ads, extrae las métricas de todas las campañas activas en un rango de fechas y genera un fichero Excel estructurado.
 
@@ -10,23 +10,6 @@ Conecta con la API de LinkedIn Ads, extrae las métricas de todas las campañas 
 
 - Python 3.12+
 - App creada en LinkedIn Developer aprobada, con acceso a Advertising API y permisos `r_ads` y `r_ads_reporting`
-
-## Instalación
-
-1. Descarga o clona el proyecto
-2. Crea y activa el entorno virtual:
-```
-   python -m venv venv
-   venv\Scripts\Activate.ps1
-```
-   Si PowerShell bloquea la ejecución de scripts:
-```
-   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-3. Instala las dependencias:
-```
-   pip install -r requirements.txt
-```
 
 ## Configuración
 
@@ -56,9 +39,9 @@ Para regenerarlos:
 ```
 2. Copia la URL que aparece en el terminal y ábrela en el navegador
 3. Inicia sesión en LinkedIn y autoriza la app
-4. LinkedIn te redirigirá a UNAWEB con una URL así:
+4. LinkedIn te redirigirá a TUWEB con una URL así:
 ```
-   https://www.UNAWEB.com/?code=XXXXXXX&state=random123
+   https://www.TUWEB.com/?code=XXXXXXX&state=random123
 ```
 5. Copia el valor entre `?code=` y `&state=`
 6. Pégalo en el terminal cuando el script te lo pida
@@ -89,7 +72,7 @@ El script ejecuta 4 pasos:
 
 En `config.py` puedes ajustar el rango de datos:
 ```python
-REPORT_DAYS_BACK = 30  # Cambia este número
+REPORT_DAYS_BACK = 30  
 ```
 
 ## Métricas extraídas
