@@ -2,14 +2,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-# ─── CREDENCIALES ───────────────────────────────────────
-CLIENT_ID     = os.getenv("CLIENT_ID")
-CLIENT_SECRET = os.getenv("CLIENT_SECRET")
-ACCESS_TOKEN  = os.getenv("ACCESS_TOKEN")
-REFRESH_TOKEN = os.getenv("REFRESH_TOKEN")
-ACCOUNT_ID    = os.getenv("ACCOUNT_ID")
-
 # ─── LINKEDIN API ───────────────────────────────────────
+ACCOUNT_ID     = os.getenv("ACCOUNT_ID")
 AD_ACCOUNT_URN = f"urn:li:sponsoredAccount:{ACCOUNT_ID}"
 TOKEN_URL      = "https://www.linkedin.com/oauth/v2/accessToken"
 API_BASE_URL   = "https://api.linkedin.com/rest"
