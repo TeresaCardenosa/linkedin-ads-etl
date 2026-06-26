@@ -15,4 +15,6 @@ API_VERSION    = "202502"
 REPORT_DAYS_BACK = 30  # Cambia este número para ampliar o reducir el rango
 
 # ─── OUTPUT ─────────────────────────────────────────────
-OUTPUT_FILENAME = "linkedin_ads_data.xlsx"
+SPREADSHEET_ID   = os.getenv("SPREADSHEET_ID")
+SHEET_TAB_NAME   = os.getenv("SHEET_TAB_NAME")
+GOOGLE_CREDENTIALS = "google_credentials.json"

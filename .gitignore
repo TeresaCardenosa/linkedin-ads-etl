@@ -1,5 +1,6 @@
 # Credenciales — nunca subir
 .env
+google_credentials.json
 
 # Entorno virtual — se regenera
 venv/
@@ -8,6 +9,9 @@ venv/
 __pycache__/
 *.pyc
 *.pyo
+
+# Token Google 
+google_token.pickle 
 
 # Excel generado — datos del cliente
 *.xlsx

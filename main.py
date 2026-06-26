@@ -7,7 +7,7 @@ from auth.linkedin_auth import get_access_token
 from extractors.campaigns import get_campaigns
 from extractors.analytics import fetch_ad_stats
 from transformers.build_dataset import build_dataset
-from loaders.excel_export import export_to_excel
+from loaders.gsheets import write_to_gsheets
 
 def main():
     print("=" * 50)
@@ -28,8 +28,8 @@ def main():
     df_campaigns, df_ads = build_dataset(campaigns, analytics)
 
     # ─── PASO 4: Exportación ─────────────────────────
-    print("\n[4/4] Exportando a Excel...")
-    export_to_excel(df_campaigns, df_ads)
+    print("\n[4/4] Exportando a Google Sheets...")
+    write_to_gsheets(df_campaigns, df_ads)
 
     print("\n" + "=" * 50)
     print("  ✅ Proceso completado")
