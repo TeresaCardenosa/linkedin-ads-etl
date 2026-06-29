@@ -68,5 +68,15 @@ def exchange_code_for_token(code):
     print(r.json())
 
 if __name__ == "__main__":
-    token = get_access_token()
-    print(f"Token: {token[:30]}...")
+    # Si no hay REFRESH_TOKEN, iniciamos el flujo OAuth2 completo
+    if not REFRESH_TOKEN:
+        print("No se encontró REFRESH_TOKEN. Iniciando flujo de autorización...\n")
+        build_auth_url()
+        print("\n2. Después de autorizar, pega aquí el code de la URL:")
+        code = input("code: ").strip()
+        exchange_code_for_token(code)
+    else:
+        # Si ya hay REFRESH_TOKEN, renovamos el access token
+        print("REFRESH_TOKEN encontrado. Renovando access token...")
+        token = get_access_token()
+        print(f"Token: {token[:30]}...")
